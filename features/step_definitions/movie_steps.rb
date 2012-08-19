@@ -44,3 +44,10 @@ When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
     step %{I #{uncheck}check "ratings_#{rating}"}
   end
 end
+
+Then /the director of "(.*)" should be "(.*)"/ do |title, director|
+  page.find_by_id('main').find('h2').should have_content("#{title}") and
+  page.find_by_id('details').should have_content("#{director}")
+end
+
+

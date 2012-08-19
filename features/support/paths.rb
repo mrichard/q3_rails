@@ -3,7 +3,11 @@
 # This file is used by web_steps.rb, which you should also delete
 #
 # You have been warned
+
+#require File.expand_path(File.join(File.dirname(__FILE__), "../..", "app/models", "movie"))
+
 module NavigationHelpers
+
   # Maps a name to a path. Used by the
   #
   #   When /^I go to (.+)$/ do |page_name|
@@ -21,6 +25,9 @@ module NavigationHelpers
     #
     #   when /^(.*)'s profile page$/i
     #     user_profile_path(User.find_by_login($1))
+
+    when /^the edit page for "(.*)"$/ then
+      edit_movie_path(ActiveRecord::Base::Movie.find_by_title($1))
 
     else
       begin
