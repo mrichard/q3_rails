@@ -29,6 +29,13 @@ module NavigationHelpers
     when /^the edit page for "(.*)"$/ then
       edit_movie_path(ActiveRecord::Base::Movie.find_by_title($1))
 
+    when /^the details page for "(.*)"$/ then
+      movie_path(ActiveRecord::Base::Movie.find_by_title($1))
+
+    when /^the Similar Movies page for "(.*)"$/ then 
+      title_value = URI.escape(ActiveRecord::Base::Movie.find_by_title($1).title)
+      "/movies/find_by_director/#{title_value}"
+
     else
       begin
         page_name =~ /^the (.*) page$/

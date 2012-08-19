@@ -1,0 +1,11 @@
+%h2 Movies by Director: = @director_query
+
+%div#movies_by_director
+  - @movies.each do |movie|
+    %div{:id => "#{movie.title}_#{movie.id}"}
+      %span= movie.title
+      %span= movie.rating
+      %span= movie.director
+      %span= movie.release_date
+
+= link_to 'Back to all movies list', movies_path
