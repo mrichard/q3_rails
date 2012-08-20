@@ -1,4 +1,4 @@
-%h2 Movies by Director: = @director_query
+%h2 Movies by Director: #{@movies.first.director}
 
 %div#movies_by_director
   - @movies.each do |movie|

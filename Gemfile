@@ -15,6 +15,8 @@ group :development, :test do
   gem 'capybara'
   gem 'launchy'
   gem 'rspec-rails'
+  gem 'ZenTest'
+  gem 'factory_girl_rails'
 end
 group :production do
 #  gem 'pg'
